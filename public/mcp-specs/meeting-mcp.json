@@ -1,0 +1,10 @@
+{
+  "name": "meeting-mcp",
+  "displayName": "End User Meetings",
+  "description": "MVP. MCP server to search transcripts, manage meeting recordings, and more. Runs locally.",
+  "githubUrl": "https://github.com/Meeting-Baas/meeting-mcp",
+  "envVars": [
+    { "label": "REDIS_URL", "value": "redis://localhost:6379", "sensitive": true },
+    { "label": "API_KEY", "value": "your-api-key-here", "sensitive": true }
+  ]
+} 

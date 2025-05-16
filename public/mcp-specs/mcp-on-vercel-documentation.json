@@ -1,0 +1,10 @@
+{
+  "name": "mcp-on-vercel-documentation",
+  "displayName": "BaaS API Documentation",
+  "description": "An MCP server to deliver context to the MeetingBaaS chat.",
+  "githubUrl": "https://github.com/Meeting-Baas/mcp-on-vercel-documentation",
+  "serverUrl": "https://mcp-documentation.meetingbaas.com/sse",
+  "envVars": [
+    { "label": "REDIS_URL", "value": "redis://vercel-doc:6379", "sensitive": true }
+  ]
+} 

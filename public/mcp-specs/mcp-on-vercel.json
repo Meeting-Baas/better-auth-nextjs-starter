@@ -1,0 +1,10 @@
+{
+  "name": "mcp-on-vercel",
+  "displayName": "BaaS API",
+  "description": "The BaaS API MCP, built with our official SDK.",
+  "githubUrl": "https://github.com/Meeting-Baas/mcp-on-vercel",
+  "serverUrl": "https://mcp.meetingbaas.com",
+  "envVars": [
+    { "label": "REDIS_URL", "value": "redis://vercel:6379", "sensitive": true }
+  ]
+} 

@@ -146,6 +146,18 @@ export const appCards: AppCard[] = [
             }
         ],
         icon: <Video className={cardIconClasses} />
+    },
+    {
+        title: "MCP Servers",
+        description: "View available MCP servers. Connect Meeting BaaS directly to your tools or AI agents.",
+        links: [
+            {
+                href: "#mcp-servers",
+                type: "App",
+                icon: <ExternalLink />
+            }
+        ],
+        icon: <Settings className={cardIconClasses} />
     }
 ]
 
@@ -172,3 +184,32 @@ export const utilities: Utility[] = [
         href: CONTRIBUTION_GITHUB_URL
     }
 ]
+
+// MCP Servers data structure
+export type McpServerSpec = {
+    name: string
+    displayName: string // user-facing name
+    description: string
+    githubUrl: string
+    serverUrl?: string // optional hosted server URL
+    envVars: { label: string; value: string | null; sensitive?: boolean }[]
+}
+
+// List of MCP spec filenames (to be loaded from public/mcp-specs)
+export const mcpSpecFiles: string[] = [
+    "mcp-on-vercel.json",
+    "mcp-on-vercel-documentation.json",
+    "speaking-bots-mcp.json",
+    "meeting-mcp.json"
+]
+
+// Example function to fetch all MCP specs (to be used in a client component)
+export async function fetchMcpSpecs(): Promise<McpServerSpec[]> {
+    return Promise.all(
+        mcpSpecFiles.map(async (filename) => {
+            const res = await fetch(`/mcp-specs/${filename}`)
+            if (!res.ok) return null
+            return res.json()
+        })
+    ).then((arr) => arr.filter(Boolean) as McpServerSpec[])
+}
